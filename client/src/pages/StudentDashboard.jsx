@@ -35,21 +35,22 @@ import {
   Cell,
 } from "recharts";
 import axios from "axios";
+import { API_URL } from "../utils/apiUrl";
 const { Content } = Layout;
 const { Title } = Typography;
 const { Option } = Select;
 
 const StudentDashboard = () => {
   // check if backend url is saved in localstorage, if not, redirect to configuration page
-  useEffect(() => {
-    if (!localStorage.getItem("backendUrl")) {
-      message.error("Please configure the backend URL");
+  // useEffect(() => {
+  //   if (!localStorage.getItem("backendUrl")) {
+  //     message.error("Please configure the backend URL");
 
-      setTimeout(() => {
-        window.location.href = "/config";
-      }, 3000);
-    }
-  }, []);
+  //     setTimeout(() => {
+  //       window.location.href = "/config";
+  //     }, 3000);
+  //   }
+  // }, []);
 
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [selectedStudentData, setSelectedStudentData] = useState({});
@@ -90,7 +91,7 @@ const StudentDashboard = () => {
   const fetchAllStudentsData = () => {
     const backendUrl = localStorage.getItem("backendUrl");
     axios
-      .get(`${backendUrl}/api/students`)
+      .get(`${API_URL}/api/students`)
       .then((response) => {
         console.log(response.data);
         setAllStudentsData(response.data);
@@ -110,7 +111,7 @@ const StudentDashboard = () => {
     // /api/cohort/stats
 
     axios
-      .get(`${backendUrl}/api/cohort/stats/${value}`)
+      .get(`${API_URL}/api/cohort/stats/${value}`)
 
       .then((response) => {
         console.log("cohort stats", response.data);
@@ -124,7 +125,7 @@ const StudentDashboard = () => {
     console.log(value);
 
     axios
-      .get(`${backendUrl}/api/cohort/attendance/${value}`)
+      .get(`${API_URL}/api/cohort/attendance/${value}`)
       .then((response) => {
         console.log("cohort graph stats", response.data);
         const formattedData = response.data.map((item) => ({

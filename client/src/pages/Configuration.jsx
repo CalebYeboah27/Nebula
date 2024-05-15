@@ -19,11 +19,11 @@ const ConfigurationPage = () => {
   };
 
   const testDbConnection = () => {
-    if (!backendUrl) {
-      message.error('Please enter the Backend URL');
-      return;
-    }
-    setLoading(true);
+    // if (!backendUrl) {
+    //   message.error('Please enter the Backend URL');
+    //   return;
+    // }
+    // setLoading(true);
     axios.post(`${backendUrl}/api/test-db-connection`, dbConfig)
       .then(response => message.success('Database connection successful!'))
       .catch(error => message.error('Database connection failed.'))
@@ -31,11 +31,11 @@ const ConfigurationPage = () => {
   };
 
   const testBackendLink = () => {
-    if (!backendUrl) {
-      message.error('Please enter the Backend URL');
-      return;
-    }
-    setLoading(true);
+    // if (!backendUrl) {
+    //   message.error('Please enter the Backend URL');
+    //   return;
+    // }
+    // setLoading(true);
     // delete localStorage backendUrl;
 
     localStorage.removeItem('backendUrl');
@@ -47,10 +47,10 @@ const ConfigurationPage = () => {
   };
 
   const saveBackendUrl = () => {
-    if (!backendUrl) {
-        message.error('Please enter the Backend URL');
-        return;
-    }
+    // if (!backendUrl) {
+    //     message.error('Please enter the Backend URL');
+    //     return;
+    // }
     localStorage.setItem('backendUrl', backendUrl);
     message.success('Backend URL saved successfully');
 };
