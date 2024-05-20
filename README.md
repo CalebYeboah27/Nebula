@@ -1,6 +1,6 @@
-# FastAPI Backend Application
+# Nebula
 
-This FastAPI application serves as a backend for managing cohort statistics, attendance, and student information. The application exposes various endpoints to retrieve and manage data related to cohorts and students.
+Nebula api serves as a backend for managing cohort statistics, attendance, and student information. The application exposes various endpoints to retrieve and manage data related to cohorts and students.
 
 ## Endpoints
 
